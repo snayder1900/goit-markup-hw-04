@@ -69,10 +69,11 @@ img {
   letter-spacing: 0.03em;
   margin-right: 93px;
 }
-.nav-item {
+.nav__item {
   margin-right: 50px;
+  position: relative;
 }
-.nav-link {
+.nav__link {
   color: var(--subtitle-color);
   font-size: var(--text-font-size);
   display: inline-block;
@@ -83,41 +84,74 @@ img {
 }
 .active {
   color: var(--main-color);
-} 
-.nav-menu {
-  display: flex;
 }
-.nav-menu .nav-item:nth-child(3) {
-  margin-right: 0;
-}
-.nav-menu .nav-link:hover,
-.nav-menu .nav-link:focus {
-  color: var(--main-color);
-  border-bottom: 4px solid var(--main-color);
+.active::after { 
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 90%;
+  background-color: var(--main-color);
+  height: 4px;
+  width: 100%;
   border-radius: 2px;
 }
+.nav__menu {
+  display: flex;
+}
+.nav__menu .nav__item:nth-child(3) {
+  margin-right: 0;
+}
+.nav__menu .nav__link:hover,
+.nav__menu .nav__link:focus {
+  color: var(--main-color);
+}
+.nav__menu .nav__link:hover::after,
+.nav__menu .nav__link:focus::after {
+  content: "";
+    position: absolute;
+    left: 0;
+    top: 90%;
+    background-color: var(--main-color);
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
 .contact {
   display: flex;
   align-items: center;
 }
-.contact-item-icon {
+.contact-item__icon {
   margin-right: 10px;
 }
-.contact .icon {
+.contact-item__icon a {
+  color: var(--text-color);
+}
+.contact-item__container {
+  display: flex;
+  align-items: center;
+}
+.contact-item__container:hover .icon {
+  fill: var(--main-color);
+}
+.contact-item__container .contact-item__icon a:focus .icon {
+  fill: var(--main-color);
+}
+.contact-item__container:hover .contact-link {
+  color: var(--main-color);
+}
+.contact-item__container .contact-link:focus {
+  color: var(--main-color);
+} 
+
+.contact-item__container .icon {
   width: 16px;
   height: 12px;
-  fill: var(--text-color);
+  fill: currentColor;
 }
-.contact .icon:hover {
-  fill: var(--main-color);
-}
-.contact .icon-telfono {
+.contact-item__container .icon--telfono {
   width: 10px;
   height: 16px;
-  fill: var(--text-color);
-}
-.contact .icon-telfono:hover {
-  fill: var(--main-color);
 }
 .contact-item {
   margin-right: 50px;
@@ -128,7 +162,7 @@ img {
 .contact .contact-item:nth-child(2) {
   margin-right: 0;
 }
-.contact .contact-item.contact-item-mail {
+.contact .contact-item.contact-item__mail {
   margin-right: 30px;
 }
 .contact-link { 
@@ -140,10 +174,7 @@ img {
   letter-spacing: 0.02em;
   padding: 25px 0;
 }
-.contact .contact-link:hover,
-.contact .contact-link:focus {
-  color: var(--main-color); 
-}
+
 
 
 .hero {
@@ -556,3 +587,7 @@ address .contact-link {
   letter-spacing: 0.03em;
   margin: 0;
 }
+
+
+
+
